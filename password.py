@@ -26,3 +26,19 @@ def check_password(password):
     if has_space:
         errors.append("boşluq olmamalıdır")
     return errors
+
+
+accepted = False
+for attempt in range(3):
+    password = input("Şifrə daxil edin: ")
+    errors = check_password(password)
+    if not errors:
+        print("Şifrə qəbul olundu")
+        accepted = True
+        break
+    print("Pozulan qaydalar:")
+    for error in errors:
+        print("-", error)
+
+if not accepted:
+    print("Cəhdlər bitdi")
